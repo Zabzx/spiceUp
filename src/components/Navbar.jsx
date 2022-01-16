@@ -1,13 +1,17 @@
 import React from 'react'
 
 const Navbar = () => {
+
+    const openMenu = () => {
+        
+    }
     return (
         <div className="header-container shadow rounded-xl">
         <header className="container flex justify-between h-20 items-center">
-            <div className="menu space-y-1">
-                <div className="line w-7 h-1 bg-red"></div>
-                <div className="line w-7 h-1 bg-red"></div>
-                <div className="line w-7 h-1 bg-red"></div>
+            <div className="menu space-y-1 cursor-pointer" onClick={openMenu}>
+                <div className="line w-7 h-1 bg-red rounded"></div>
+                <div className="line w-7 h-1 bg-red rounded"></div>
+                <div className="line w-7 h-1 bg-red rounded"></div>
             </div>
 
             <div className="logo">

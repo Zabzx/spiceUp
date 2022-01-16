@@ -1,8 +1,9 @@
 module.exports = {
-  content: ['./src/components/Navbar.jsx'],
+  content: ['./src/components/Navbar.jsx', './src/components/Sidebar.jsx'],
   theme: {
     colors: {
-      red: '#E51A1A'
+      red: '#E51A1A',
+      white: '#fff'
     },
     extend: {},
     container: {
