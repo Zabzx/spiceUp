@@ -1,9 +1,14 @@
 import React from 'react'
+import { useContext } from 'react'
+import { MenuContext } from '../context/MenuContext'
 
 const Navbar = () => {
 
+    const [menuContext, setMenuConext] = useContext(MenuContext)
+
     const openMenu = () => {
-        
+        setMenuConext({...menuContext, toggle: !menuContext.toggle})
+        console.log(menuContext)
     }
     return (
         <div className="header-container shadow rounded-xl">
@@ -19,7 +24,7 @@ const Navbar = () => {
             </div>
 
             <div className="search space-x-3">
-            <i class="fas fa-search text-2xl"></i>
+            <i className="fas fa-search text-2xl"></i>
             <input type="text" placeholder='Search' className="border-gray-400 border px-2 py-1 rounded-xl"/>
             </div>
         </header>
