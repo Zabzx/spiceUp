@@ -17,16 +17,18 @@ const Featured = () => {
 
     
     return (
-        <div>
+        <>
+        <div className="grid grid-cols-4">
             {featuredData.map((item) => (
-                <>
+                <div className=" container border rounded w-1/5">
                 <img src={item.recipe.image} alt="" />
                 <h1>{item.recipe.label}</h1>
-                </>
+                </div>
             ))}
-                <button onClick={getFeatured}>get</button>
-            
         </div>
+        <button onClick={getFeatured}>get</button>
+        </>
+        
     )
 }
 
