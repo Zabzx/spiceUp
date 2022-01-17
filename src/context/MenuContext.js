@@ -5,8 +5,8 @@ export const MenuContext = createContext();
 
 export const MenuProvider = (props) => {
     const [menu, setMenu] = useState({
-        context: '-translate-x-full',
-        toggle: true
+        context: 'translate-x-full',
+        toggle: false
     });
 
     return (

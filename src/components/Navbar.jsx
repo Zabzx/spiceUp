@@ -8,7 +8,6 @@ const Navbar = () => {
 
     const openMenu = () => {
         setMenuConext({...menuContext, toggle: !menuContext.toggle})
-        console.log(menuContext)
     }
     return (
         <div className="header-container shadow rounded-xl">
