@@ -19,7 +19,7 @@ const Navbar = () => {
             </div>
 
             <div className="logo">
-                <h1 className="text-red text-3xl">spiceUp!</h1>
+                <h1 className="text-red text-3xl font-mukta">spiceUp!</h1>
             </div>
 
             <div className="search space-x-3">
