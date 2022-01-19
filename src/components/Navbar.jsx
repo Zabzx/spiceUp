@@ -1,14 +1,17 @@
 import React from 'react'
 import { useContext } from 'react'
 import { MenuContext } from '../context/MenuContext'
+import { useState } from 'react'
 
 const Navbar = () => {
 
     const [menuContext, setMenuConext] = useContext(MenuContext)
+    const [userSearchInput, setUserSearchInput] = useState('')
 
     const openMenu = () => {
         setMenuConext({...menuContext, toggle: !menuContext.toggle})
     }
+
     return (
         <div className="header-container shadow rounded-xl">
         <header className="container flex justify-between h-20 items-center">
@@ -24,7 +27,9 @@ const Navbar = () => {
 
             <div className="search space-x-3">
             <i className="fas fa-search text-2xl"></i>
-            <input type="text" placeholder='Search' className="border-gray-400 border px-2 py-1 rounded-xl"/>
+            <form action="">
+            <input type="text" placeholder='Search' onChange={(e) => setUserSearchInput(e.target.value)} className="border-gray-400 border px-2 py-1 rounded-xl"/>
+            </form>
             </div>
         </header>
         </div>
