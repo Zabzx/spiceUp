@@ -1,23 +1,13 @@
 import React from 'react'
-import axios from 'axios'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useContext } from 'react'
+import { DishContext } from '../context/DishContext'
+import { LoadingContext } from '../context/LoadingContext'
 
 const Featured = () => {
 
-    const [featuredData, setFeaturedData] = useState([])
-    const [loadingData, setLoadingData] = useState(true);
+    const [featuredData, setFeaturedData] = useContext(DishContext)
+    const [loadingData, setLoadingData] = useContext(LoadingContext)
 
-    useEffect(() => {
-        axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=cheese&app_id=ec9c97fa&app_key=823a6d3e8a5570c0c8788d575bc915e2`)
-        .then(res => {
-            setFeaturedData(res.data.hits)
-            console.log(featuredData)
-            setLoadingData(false)
-        })
-    }, [])
-
-    
     return (
         <>
         <h1 className='text-center text-7xl mt-10 font-nautigal text-red'>Featured Ingredient: Cheese</h1>
