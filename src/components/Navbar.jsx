@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { DishContext } from '../context/DishContext'
 import { LoadingContext } from '../context/LoadingContext'
 import axios from 'axios'
+import Search from '../img/search.png'
 
 const Navbar = () => {
 
@@ -37,11 +38,11 @@ const Navbar = () => {
             </div>
 
             <div className="logo">
-                <h1 className="text-red text-3xl font-mukta">spiceUp!</h1>
+                <h1 className="text-red text-5xl font-mukta">spiceUp!</h1>
             </div>
 
-            <div className="search space-x-3">
-            <i className="fas fa-search text-2xl"></i>
+            <div className="flex items-center search space-x-3">
+            <img src={Search} alt="" className="w-10 h-10" />
             <form onSubmit={(e) => {
                 e.preventDefault();
                 displayItems()
