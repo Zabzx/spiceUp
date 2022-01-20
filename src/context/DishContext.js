@@ -5,7 +5,7 @@ import { LoadingContext } from "./LoadingContext";
 export const DishContext = createContext();
 
 export const DishProvider = (props) => {
-    const [featuredData, setFeaturedData] = useState([])
+    const [featuredData, setFeaturedData] = useState([{}])
     const [loadingData, setLoadingData] = useContext(LoadingContext)
 
     useEffect(() => {
