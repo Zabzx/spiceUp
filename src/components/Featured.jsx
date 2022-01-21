@@ -12,7 +12,7 @@ const Featured = () => {
 
 
     const addToFavorites = (item) => {
-        setFavoriteDishes([...favoriteDishes], item)
+        setFavoriteDishes([...favoriteDishes, item.recipe])
         console.log(favoriteDishes)
     }
 
@@ -27,18 +27,8 @@ const Featured = () => {
                 <p className="">Meal: {item.recipe.mealType}</p>
                 <p className="">Calories: {item.recipe.calories.toString().split('.')[0]}</p>
 
-                <button onClick={(e) =>{
+                <button onClick={() => {
                     addToFavorites(item)
-
-                    const isClicked = false
-
-                    if (e.target.textContent = 'Add to Favorties') {
-                        e.target.textContent = 'Remove from Favorites'
-                        e.currentTarget.style.backgroundColor = 'red'
-                    } else {
-                        e.target.textContent = 'Add to Favorites'
-                        e.currentTarget.style.backgroundColor = 'green'
-                    }
 
                 } } className="p-2 bg-green text-white rounded-lg mt-5">Add to Favorites</button>
 

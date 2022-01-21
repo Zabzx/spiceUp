@@ -8,7 +8,7 @@ module.exports = {
     colors: {
       red: '#E51A1A',
       white: '#fff',
-      green: '#4ade80'
+      green: '#15803d'
     },
     extend: {},
     container: {
