@@ -5,6 +5,7 @@ import Featured from './components/Featured';
 import { LoadingProvider } from './context/LoadingContext';
 import { DishProvider } from './context/DishContext';
 import { FavoriteDishProvider } from './context/FavoritesContext';
+import { FavAlertProvider } from './context/FavAlertContext';
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
       <FavoriteDishProvider>
       <Navbar/>
       <Sidebar/>
+      <FavAlertProvider>
       <Featured/>
+      </FavAlertProvider>
       </FavoriteDishProvider>
       </DishProvider>
       </LoadingProvider>

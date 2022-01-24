@@ -4,7 +4,6 @@ import { DishContext } from '../context/DishContext'
 import { LoadingContext } from '../context/LoadingContext'
 import { FavoriteDishContext } from '../context/FavoritesContext'
 import FavAlert from './FavAlert'
-import { FavAlertProvider } from '../context/FavAlertContext'
 import { FavAlertContext } from '../context/FavAlertContext'
 
 const Featured = () => {
@@ -23,8 +22,12 @@ const Featured = () => {
         setFavoriteDishes(favoriteDishes.filter((dish => dish.label !== item.recipe.label)))
     }
 
+    const removeALert = () => {
+        setFavAlert({...favAlert, status: false})
+    }
+
     return (
-        <FavAlertProvider>
+        <>
         <FavAlert/>
         <h1 className='text-center text-7xl mt-10 font-nautigal text-red'>Featured Ingredient: Cheese</h1>
         <div className="container grid grid-cols-4 gap-5 mt-10">
@@ -44,7 +47,8 @@ const Featured = () => {
                         addToFavorites(item)
                         e.target.textContent = 'Remove from Favorites';
                         e.currentTarget.style.backgroundColor = '#E51A1A'
-                        setFavAlert({...favAlert, status: !favAlert.status})
+                        setFavAlert({...favAlert, status: true})
+                        setTimeout(removeALert, 2000)
                     }
 
                 } } className="p-2 bg-green text-white rounded-lg mt-5">Add to Favorites</button>
@@ -54,7 +58,7 @@ const Featured = () => {
             <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-red"></div>
           </div>}
         </div>
-        </FavAlertProvider>
+        </>
         
     )
 }
