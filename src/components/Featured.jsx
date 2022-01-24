@@ -3,12 +3,16 @@ import { useContext, useState } from 'react'
 import { DishContext } from '../context/DishContext'
 import { LoadingContext } from '../context/LoadingContext'
 import { FavoriteDishContext } from '../context/FavoritesContext'
+import FavAlert from './FavAlert'
+import { FavAlertProvider } from '../context/FavAlertContext'
+import { FavAlertContext } from '../context/FavAlertContext'
 
 const Featured = () => {
 
     const [featuredData, setFeaturedData] = useContext(DishContext)
     const [loadingData, setLoadingData] = useContext(LoadingContext)
     const [favoriteDishes, setFavoriteDishes] = useContext(FavoriteDishContext)
+    const [favAlert, setFavAlert] = useContext(FavAlertContext)
 
 
     const addToFavorites = (item) => {
@@ -20,7 +24,8 @@ const Featured = () => {
     }
 
     return (
-        <>
+        <FavAlertProvider>
+        <FavAlert/>
         <h1 className='text-center text-7xl mt-10 font-nautigal text-red'>Featured Ingredient: Cheese</h1>
         <div className="container grid grid-cols-4 gap-5 mt-10">
             {!loadingData ? featuredData.map((item) => (
@@ -33,10 +38,13 @@ const Featured = () => {
                 <button onClick={(e) => {
                     if (e.target.textContent === 'Remove from Favorites') {
                         removeDish(item)
+                        e.target.textContent = 'Add to Favorites'
+                        e.currentTarget.style.backgroundColor = '#15803d'
                     } else {
                         addToFavorites(item)
-                    e.target.textContent = 'Remove from Favorites';
-                    e.currentTarget.style.backgroundColor = 'red'
+                        e.target.textContent = 'Remove from Favorites';
+                        e.currentTarget.style.backgroundColor = '#E51A1A'
+                        setFavAlert({...favAlert, status: !favAlert.status})
                     }
 
                 } } className="p-2 bg-green text-white rounded-lg mt-5">Add to Favorites</button>
@@ -46,7 +54,7 @@ const Featured = () => {
             <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-red"></div>
           </div>}
         </div>
-        </>
+        </FavAlertProvider>
         
     )
 }
