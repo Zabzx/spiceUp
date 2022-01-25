@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./src/App.js', './src/components/Navbar.jsx', './src/components/Sidebar.jsx', './src/components/Featured.jsx', './src/components/FavAlert.jsx'],
+  content: ['./src/App.js', './src/components/Navbar.jsx', './src/components/Sidebar.jsx', './src/components/Featured.jsx', './src/components/FavAlert.jsx', './src/pages/FavDishes.jsx'],
   theme: {
     fontFamily: {
       'mukta': ['Mukta', 'sans-serif'],

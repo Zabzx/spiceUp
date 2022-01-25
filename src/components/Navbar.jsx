@@ -23,7 +23,6 @@ const Navbar = () => {
         axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${userSearchInput}&app_id=ec9c97fa&app_key=823a6d3e8a5570c0c8788d575bc915e2`)
         .then(res => {
             setDishes(res.data.hits)
-            console.log(res.data.hits)
             setLoadingData(false)
         })
     }
