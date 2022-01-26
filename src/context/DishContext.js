@@ -13,7 +13,6 @@ export const DishProvider = (props) => {
         .then(res => {
             setFeaturedData(res.data.hits)
             setLoadingData(false)
-            console.log(res.data.hits)
         })
     }, [])
 
