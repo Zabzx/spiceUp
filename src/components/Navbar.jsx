@@ -36,7 +36,8 @@ const Navbar = () => {
                 <div className="line w-7 h-1 bg-red rounded"></div>
             </div>
 
-            <div className="logo">
+            <div className="logo flex space-x-3 items-center">
+                <i className="fas fa-utensils text-red text-3xl"></i>
                 <h1 className="text-red text-5xl font-mukta">spiceUp!</h1>
             </div>
 
