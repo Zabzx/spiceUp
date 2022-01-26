@@ -2,10 +2,13 @@ import React from 'react'
 import { useContext } from 'react';
 import { useEffect } from 'react/cjs/react.development';
 import { MenuContext } from '../context/MenuContext';
+import { Link } from 'react-router-dom';
+import { FavoriteDishContext } from "../context/FavoritesContext";
 
 const Sidebar = () => {
 
     const [menuContext, setMenuConext] = useContext(MenuContext)
+    const [favDishes, setFavDishes] = useContext(FavoriteDishContext)
 
     return (
         <>
@@ -17,7 +20,7 @@ const Sidebar = () => {
 
             <div className="flex items-center text-red text-lg space-x-3 justify-center">
             <i className="fas fa-heart"></i>
-            <h1>Your Favorites</h1>
+                <Link to={"/favorites"}><h1>Your Favorites</h1></Link>
             </div>
 
             <div className="flex items-center text-red text-lg space-x-3 justify-center">

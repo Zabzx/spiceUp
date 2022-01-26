@@ -7,12 +7,11 @@ import { DishProvider } from './context/DishContext';
 import { FavoriteDishProvider } from './context/FavoritesContext';
 import { FavAlertProvider } from './context/FavAlertContext';
 import FavDishes from './pages/FavDishes';
-import { BrowserRouter as Router, Switch, Route, Routes } from 'react-router-dom'
+import { Route, Routes, useHistory } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <Router>
       <MenuProvider>
       <LoadingProvider>
       <DishProvider>
@@ -20,16 +19,15 @@ function App() {
       <Navbar/>
       <Sidebar/>
       <FavAlertProvider>
-      <Featured/>
+      <Routes>
+        <Route path="/" element={<Featured/>}></Route>
+        <Route path="/favorites" element={<FavDishes/>}></Route>
+      </Routes>
       </FavAlertProvider>
       </FavoriteDishProvider>
       </DishProvider>
       </LoadingProvider>
       </MenuProvider>
-      <Routes>
-      <Route path="favorites" element={<FavDishes/>}/>
-      </Routes>
-      </Router>
     </div>
   );
 }

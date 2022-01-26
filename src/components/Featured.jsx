@@ -32,7 +32,7 @@ const Featured = () => {
         <h1 className='text-center text-7xl mt-10 font-nautigal text-red'>Featured Ingredient: Cheese</h1>
         <div className="container grid grid-cols-4 gap-5 mt-10">
             {!loadingData ? featuredData.map((item) => (
-                <div className="text-center rounded w-full shadow-2xl pb-5" key={Math.floor(Math.random() * 10000)}>
+                <div className="text-center rounded w-full shadow-2xl pb-5" key={item.recipe.label}>
                 <img className="w-screen" src={item.recipe.image} alt="" />
                 <h1 className=" text-red text-xl mt-2">{item.recipe.label}</h1>
                 <p className="">Meal: {item.recipe.mealType}</p>
@@ -44,7 +44,6 @@ const Featured = () => {
                         e.target.textContent = 'Add to Favorites'
                         e.currentTarget.style.backgroundColor = '#15803d'
                     } else {
-                        console.log('wdmc')
                         addToFavorites(item)
                         e.target.textContent = 'Remove from Favorites';
                         e.currentTarget.style.backgroundColor = '#E51A1A'
