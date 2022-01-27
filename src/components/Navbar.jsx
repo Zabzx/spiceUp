@@ -42,12 +42,12 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center search space-x-3">
-            <img src={Search} alt="" className="w-10 h-10" />
+            <i className="text-2xl text-red fas fa-search"></i>
             <form onSubmit={(e) => {
                 e.preventDefault();
                 displayItems()
             }} action="">
-            <input type="text" placeholder='Search' onChange={(e) => setUserSearchInput(e.target.value)} className="border-gray-400 border px-2 py-1 rounded-xl"/>
+            <input type="text" placeholder='Search' onChange={(e) => setUserSearchInput(e.target.value)} className="border-gray-400 border px-2 py-2 w-full rounded-xl"/>
             </form>
             </div>
         </header>

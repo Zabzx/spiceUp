@@ -32,11 +32,11 @@ const Featured = () => {
         <>
         <FavAlert/>
         <h1 className='text-center text-7xl mt-10 font-nautigal text-red'>Featured Ingredient: Cheese</h1>
-        <div className="container grid grid-cols-4 gap-5 mt-10">
+        <div className="container grid grid-cols-4 gap-10 mt-10">
             {!loadingData ? featuredData.map((item) => (
-                <div className="text-center rounded-xl w-full shadow-2xl pb-10" key={item.recipe.image}>
+                <div className="border text-center rounded-xl w-full shadow-lg pb-10" key={item.recipe.image}>
                 <img className="w-screen" src={item.recipe.image} alt="" />
-                <h1 className=" text-red text-xl mt-2">{item.recipe.label}</h1>
+                <h1 className=" text-red text-xl mt-2 p-1">{item.recipe.label}</h1>
                 <p className="">Meal: {item.recipe.mealType}</p>
                 <p className="">Calories: {item.recipe.calories.toString().split('.')[0]}</p>
 
