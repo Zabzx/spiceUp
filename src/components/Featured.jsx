@@ -5,8 +5,8 @@ import { LoadingContext } from '../context/LoadingContext'
 import { FavoriteDishContext } from '../context/FavoritesContext'
 import FavAlert from './FavAlert'
 import { FavAlertContext } from '../context/FavAlertContext'
-import DishPage from '../pages/DishPage'
-import { Link, Routes, Route} from 'react-router-dom'
+import { SearchedContext, SearchProvider } from '../context/SearchedContext'
+import { SearchValueContext } from '../context/SearchValue'
 
 const Featured = () => {
 
@@ -14,6 +14,8 @@ const Featured = () => {
     const [loadingData, setLoadingData] = useContext(LoadingContext)
     const [favoriteDishes, setFavoriteDishes] = useContext(FavoriteDishContext)
     const [favAlert, setFavAlert] = useContext(FavAlertContext)
+    const [searched, setSearched] = useContext(SearchedContext)
+    const [searchValue, setSearchedValue] = useContext(SearchValueContext)
 
 
     const addToFavorites = (item) => {
@@ -31,10 +33,10 @@ const Featured = () => {
     return (
         <>
         <FavAlert/>
-        <h1 className='text-center text-7xl mt-10 font-nautigal text-red'>Featured Ingredient: Cheese</h1>
+        {!searched ? <h1 className='text-center text-7xl mt-10 font-nautigal text-red'>Featured Ingredient: Cheese</h1> : <h1 className="text-center text-7xl mt-10 font-nautigal text-red">Results found for {searchValue}</h1>}
         <div className="container grid grid-cols-4 gap-10 mt-10">
             {!loadingData ? featuredData.map((item) => (
-                <div className="border text-center rounded-xl w-full shadow-lg pb-10" key={item.recipe.image}>
+                <div className="border-gray border-xl text-center rounded-xl w-full shadow-lg pb-10" key={item.recipe.image}>
                 <img className="w-screen" src={item.recipe.image} alt="" />
                 <h1 className=" text-red text-xl mt-2 p-1">{item.recipe.label}</h1>
                 <p className="">Meal: {item.recipe.mealType}</p>

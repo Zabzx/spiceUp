@@ -5,7 +5,6 @@ import { FavoriteDishContext } from '../context/FavoritesContext';
 const FavDishes = () => {
 
     const [favDishes, setFavDishes] = useContext(FavoriteDishContext)
-    console.log(favDishes)
 
   return  <>
     <h1 className="text-center text-7xl mt-10 font-nautigal text-red">Your Favorite Dishes!</h1>
