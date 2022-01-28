@@ -10,6 +10,8 @@ import FavDishes from './pages/FavDishes';
 import { Route, Routes, useHistory } from 'react-router-dom'
 import { SearchProvider } from './context/SearchedContext';
 import {  SearchValueProvider } from './context/SearchValue';
+import About from './pages/About';
+
 function App() {
   return (
     <div className="App">
@@ -25,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Featured/>}></Route>
         <Route path="/favorites" element={<FavDishes/>}></Route>
+        <Route path="/about" element={<About/>}></Route>
       </Routes>
       </FavAlertProvider>
       </FavoriteDishProvider>
