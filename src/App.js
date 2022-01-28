@@ -9,8 +9,7 @@ import { FavAlertProvider } from './context/FavAlertContext';
 import FavDishes from './pages/FavDishes';
 import { Route, Routes, useHistory } from 'react-router-dom'
 import { SearchProvider } from './context/SearchedContext';
-import { SearchValueContext, SearchValueProvider } from './context/SearchValue';
-
+import {  SearchValueProvider } from './context/SearchValue';
 function App() {
   return (
     <div className="App">

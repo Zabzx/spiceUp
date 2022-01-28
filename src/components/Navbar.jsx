@@ -4,18 +4,19 @@ import { MenuContext } from '../context/MenuContext'
 import { useState } from 'react'
 import { DishContext } from '../context/DishContext'
 import { LoadingContext } from '../context/LoadingContext'
-import axios from 'axios'
-import { SearchedContext } from '../context/SearchedContext'
 import { SearchValueContext } from '../context/SearchValue'
+import { SearchedContext } from '../context/SearchedContext'
+import axios from 'axios'
 
 const Navbar = () => {
 
     const [menuContext, setMenuConext] = useContext(MenuContext)
     const [loadingData, setLoadingData] = useContext(LoadingContext)
     const [dishes, setDishes] = useContext(DishContext)
-    const [searched, setSerched] = useContext(SearchedContext)
-    const [userSearchInput, setUserSearchInput] = useState('')
     const [userValue, setUserValue] = useContext(SearchValueContext)
+    const [searched, setSearched] = useContext(SearchedContext)
+    const [userSearchInput, setUserSearchInput] = useState('')
+    
 
     const openMenu = () => {
         setMenuConext({...menuContext, toggle: !menuContext.toggle})
@@ -26,8 +27,7 @@ const Navbar = () => {
         axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${userSearchInput}&app_id=ec9c97fa&app_key=823a6d3e8a5570c0c8788d575bc915e2`)
         .then(res => {
             setDishes(res.data.hits)
-            setSerched(true)
-            console.log(searched)
+            setSearched(true)
             setLoadingData(false)
         })
     }

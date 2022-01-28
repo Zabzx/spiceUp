@@ -5,8 +5,9 @@ import { LoadingContext } from '../context/LoadingContext'
 import { FavoriteDishContext } from '../context/FavoritesContext'
 import FavAlert from './FavAlert'
 import { FavAlertContext } from '../context/FavAlertContext'
-import { SearchedContext, SearchProvider } from '../context/SearchedContext'
+import { SearchedContext } from '../context/SearchedContext'
 import { SearchValueContext } from '../context/SearchValue'
+import axios from 'axios'
 
 const Featured = () => {
 
@@ -62,6 +63,7 @@ const Featured = () => {
             <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-red"></div>
           </div>}
         </div>
+       
         </>
         
     )
