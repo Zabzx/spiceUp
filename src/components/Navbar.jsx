@@ -29,6 +29,7 @@ const Navbar = () => {
             setDishes(res.data.hits)
             setSearched(true)
             setLoadingData(false)
+            console.log(dishes)
         })
     }
 

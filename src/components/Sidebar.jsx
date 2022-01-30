@@ -21,6 +21,7 @@ const Sidebar = () => {
 
             <Link to={"/favorites"}><div className="flex items-center text-red text-lg space-x-3 justify-center">
             <i className="fas fa-heart"></i>
+            <h1>Favorites</h1>
             </div>
             </Link>
 
