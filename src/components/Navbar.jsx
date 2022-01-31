@@ -6,6 +6,7 @@ import { DishContext } from '../context/DishContext'
 import { LoadingContext } from '../context/LoadingContext'
 import { SearchValueContext } from '../context/SearchValue'
 import { SearchedContext } from '../context/SearchedContext'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const Navbar = () => {
@@ -16,6 +17,8 @@ const Navbar = () => {
     const [userValue, setUserValue] = useContext(SearchValueContext)
     const [searched, setSearched] = useContext(SearchedContext)
     const [userSearchInput, setUserSearchInput] = useState('')
+
+    const navigate = useNavigate()
     
 
     const openMenu = () => {
@@ -29,6 +32,7 @@ const Navbar = () => {
             setDishes(res.data.hits)
             setSearched(true)
             setLoadingData(false)
+            navigate('/')
             console.log(dishes)
         })
     }
