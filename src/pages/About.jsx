@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useContext, useEffect} from 'react';
+import { MenuContext } from '../context/MenuContext';
 
 const About = () => {
+
+  const [menu, setMenu] = useContext(MenuContext)
+
+  useEffect(() => {
+    setMenu({...menu, toggle: false})
+  }, [])
+  
   return (
      <div className="container ">
      <h1 className="text-5xl mt-10">This is my first Official Project using Tailwind CSS</h1>

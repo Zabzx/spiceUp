@@ -1,10 +1,16 @@
 import React from 'react';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { FavoriteDishContext } from '../context/FavoritesContext';
+import { MenuContext } from '../context/MenuContext.js'
 
 const FavDishes = () => {
 
     const [favDishes, setFavDishes] = useContext(FavoriteDishContext)
+    const [menuContext, setMenuContext] = useContext(MenuContext)
+
+    useEffect(() => {
+      setMenuContext({...menuContext, toggle: false})
+    }, [])
 
   return  <>
     <h1 className="text-center text-7xl mt-10 font-nautigal text-red">Your Favorite Dishes!</h1>

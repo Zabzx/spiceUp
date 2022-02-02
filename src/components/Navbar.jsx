@@ -57,7 +57,7 @@ const Navbar = () => {
                 e.preventDefault();
                 displayItems()
             }} action="">
-            <input type="text" placeholder='Search' onChange={(e) => {
+            <input type="text" placeholder="Search" onChange={(e) => {
                 setUserSearchInput(e.target.value)
                 setUserValue(e.target.value)
             }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { DishContext } from '../context/DishContext'
 import { LoadingContext } from '../context/LoadingContext'
 import { FavoriteDishContext } from '../context/FavoritesContext'
@@ -7,7 +7,7 @@ import FavAlert from './FavAlert'
 import { FavAlertContext } from '../context/FavAlertContext'
 import { SearchedContext } from '../context/SearchedContext'
 import { SearchValueContext } from '../context/SearchValue'
-import axios from 'axios'
+import { MenuContext } from '../context/MenuContext'
 
 const Featured = () => {
 
@@ -17,6 +17,11 @@ const Featured = () => {
     const [favAlert, setFavAlert] = useContext(FavAlertContext)
     const [searched, setSearched] = useContext(SearchedContext)
     const [searchValue, setSearchedValue] = useContext(SearchValueContext)
+    const [menu, setMenu] = useContext(MenuContext)
+
+    useEffect(() => {
+        setMenu({...menu, toggle: false})
+    }, [])
 
 
     const addToFavorites = (item) => {
@@ -34,7 +39,7 @@ const Featured = () => {
     return (
         <>
         <FavAlert/>
-        {!searched ? <h1 className='text-center text-7xl mt-20 font-nautigal text-red'>Featured Ingredient: Cheese</h1> : <h1 className="text-center text-7xl mt-10 font-nautigal text-red">Results found for {searchValue}</h1>}
+        {!searched ? <h1 className="text-center text-7xl mt-20 font-nautigal text-red">Featured Ingredient: Cheese</h1> : <h1 className="text-center text-7xl mt-10 font-nautigal text-red">Results found for {searchValue}</h1>}
         <div className="container grid grid-cols-3 gap-10 mt-10 mb-10">
             {!loadingData ? featuredData.map((item) => (
                 <div className="border-gray border-xl text-center rounded-xl w-ful bg-slate pb-5" key={item.recipe.image}>
