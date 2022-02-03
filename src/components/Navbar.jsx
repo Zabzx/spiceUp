@@ -38,7 +38,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="header-container shadow rounded-xl">
+        <div className="header-container shadow rounded-xl fixed top-0 w-full bg-white">
         <header className="container flex justify-between h-20 items-center">
             <div className="menu space-y-1 cursor-pointer" onClick={openMenu}>
                 <div className="line w-7 h-1 bg-red rounded"></div>

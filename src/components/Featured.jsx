@@ -40,11 +40,11 @@ const Featured = () => {
     return (
         <>
         <FavAlert/>
-        {!searched ? <h1 className="text-center text-7xl mt-20 font-nautigal text-red">Featured Ingredient: Cheese</h1> : <h1 className="text-center text-7xl mt-10 font-nautigal text-red">Results found for {searchValue}</h1>}
+        {!searched ? <h1 className="text-center text-7xl mt-28 font-nautigal text-red">Featured Ingredient: Cheese</h1> : <h1 className="text-center text-7xl mt-10 font-nautigal text-red">Results found for {searchValue}</h1>}
         <div className="container grid grid-cols-3 gap-10 mt-10 mb-10">
             {!loadingData ? featuredData.map((item) => (
-                <div className="border-gray border-xl text-center rounded-xl w-ful bg-slate pb-5" key={item.recipe.image}>
-                <img className="w-screen rounded-t-xl" src={item.recipe.image} alt="" />
+                <div className="border-gray border-xl text-center rounded-xl w-full bg-slate pb-5" key={item.recipe.image}>
+                <img className="w-full rounded-t-xl" src={item.recipe.image} alt="" />
                 <h1 className=" text-white text-4xl mt-2 p-1">{item.recipe.label}</h1>
                 <p className="text-white">Meal: {item.recipe.mealType}</p>
                 <p className="text-white">Calories: {item.recipe.calories.toString().split('.')[0]}</p>
