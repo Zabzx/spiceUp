@@ -11,7 +11,6 @@ import { Route, Routes, useHistory } from 'react-router-dom'
 import { SearchProvider } from './context/SearchedContext';
 import {  SearchValueProvider } from './context/SearchValue';
 import About from './pages/About';
-import Footer from './components/Footer';
 
 function App() {
   return (
@@ -30,7 +29,6 @@ function App() {
         <Route path="/favorites" element={<FavDishes/>}></Route>
         <Route path="/about" element={<About/>}></Route>
       </Routes>
-      <Footer/>
       </FavAlertProvider>
       </FavoriteDishProvider>
       </DishProvider>

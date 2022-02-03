@@ -8,6 +8,7 @@ import { FavAlertContext } from '../context/FavAlertContext'
 import { SearchedContext } from '../context/SearchedContext'
 import { SearchValueContext } from '../context/SearchValue'
 import { MenuContext } from '../context/MenuContext'
+import Footer from './Footer'
 
 const Featured = () => {
 
@@ -68,7 +69,7 @@ const Featured = () => {
             <div className="animate-spin rounded-full h-32 w-32 border-b-4 border-red"></div>
           </div>}
         </div>
-       
+        <Footer/>
         </>
         
     )
