@@ -14,3 +14,5 @@ export const FavAlertProvider = (props) => {
         </FavAlertContext.Provider>
     )
 }
+
+//Determines when the popup should appear on screen
