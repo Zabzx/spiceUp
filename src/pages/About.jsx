@@ -1,6 +1,5 @@
 import React, { useContext, useEffect} from 'react';
 import { MenuContext } from '../context/MenuContext';
-import Footer from '../components/Footer.jsx'
 
 const About = () => {
 
