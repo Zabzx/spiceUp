@@ -184,7 +184,7 @@ const Region = () => {
 
     return (
         <>
-        <Heading mt={{ base: "2rem", lg: "1rem", }} textAlign="center" fontFamily="Fasthand">Select a Category</Heading>
+        <Heading mt={{ base: "2rem", lg: "1rem", }} textAlign="center" fontFamily="Fasthand">Select a Region</Heading>
         <Container maxW="90%">
             <Grid mt="1rem" mb="3rem" templateColumns={["1fr", "repeat(2, 1fr)", "repeat(2, 1fr)", "repeat(4, 1fr)"]} gap="2rem" >
                 {regions.map((item, index) => (
