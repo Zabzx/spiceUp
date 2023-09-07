@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Home = () => {
   // Variables
@@ -103,6 +103,7 @@ const Home = () => {
               </Text>
 
               <Flex w="100%" justifyContent="center" mt="1rem" mb="1rem">
+                <Link to="/region">
                 <Button
                   bg="#DD3766"
                   borderRadius="20px"
@@ -112,6 +113,7 @@ const Home = () => {
                 >
                   BY REGION
                 </Button>
+                </Link>
               </Flex>
             </Container>
           </Box>
@@ -144,11 +146,11 @@ const Home = () => {
               </Flex>
 
               <Text mt="1rem">
-                Search for specific ingredients you would like to see, and get a
-                wide range of results.
+                Get recipes based on main ingredient, meal type: (Breakfast, Vegan, Dessert etc.)
               </Text>
 
               <Flex w="100%" justifyContent="center" mt="1rem" mb="1rem">
+                <Link to="/categories">
                 <Button
                   bg="#DD3766"
                   borderRadius="20px"
@@ -156,8 +158,9 @@ const Home = () => {
                   textAlign="center"
                   _hover={{ opacity: 0.7 }}
                 >
-                  BY INGREDIENT
+                  BY CATEGORY
                 </Button>
+                </Link>
               </Flex>
             </Container>
           </Box>
@@ -192,6 +195,7 @@ const Home = () => {
               <Text mt="1rem">Save dishes to your favorites to for easy access ❣️</Text>
 
               <Flex w="100%" justifyContent="center" mt="1rem" mb="1rem">
+                <Link to="/favorites">
                 <Button
                   bg="#DD3766"
                   borderRadius="20px"
@@ -201,6 +205,7 @@ const Home = () => {
                 >
                   FAVORITES
                 </Button>
+                </Link>
               </Flex>
             </Container>
           </Box>
