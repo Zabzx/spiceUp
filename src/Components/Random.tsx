@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { Box, Flex, Image, Heading, Button, Spinner, useDisclosure } from "@chakra-ui/react"
+import { Box, Flex, Image, Heading, Button, Spinner, useDisclosure, useToast } from "@chakra-ui/react"
 import { SelectedMeal } from "./SearchResults";
 import ChakraModal from "./ChakraModal";
 
 const Random = () => {
     // Variables
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const toast = useToast();
+
     // State
     const [meal, setMeal] = useState<SelectedMeal>();
     const [loading, setLoading] = useState(true);
-
-    // Context
 
     // Effects
     useEffect(() => {
@@ -20,7 +20,12 @@ const Random = () => {
                 setMeal(res.meals[0]);
                 setLoading(false);
             }).catch(err => {
-                console.log(err);
+                toast({
+                    title: "Error",
+                    description: err.message,
+                    status: "error",
+                    isClosable: true,
+                });
                 setLoading(true);
             });
     }, []);
@@ -36,12 +41,32 @@ const Random = () => {
                     setLoading(false);
                 })
                 .catch(err => {
-                    console.log(err);
+                    toast({
+                        title: "Error",
+                        description: err.message,
+                        status: "error",
+                        isClosable: true,
+                    });
                     setLoading(true);
                 });
         } catch (error) {
-            console.log(error);
-            setLoading(true);
+            if (typeof error === "string") {
+                toast({
+                    title: "Error",
+                    description: error,
+                    status: "error",
+                    isClosable: true,
+                });
+                setLoading(true);
+            } else if (error instanceof Error) {
+                toast({
+                    title: "Error",
+                    description: error.message,
+                    status: "error",
+                    isClosable: true,
+                });
+                setLoading(true);
+            }
         }
     }
 
