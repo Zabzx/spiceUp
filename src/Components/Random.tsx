@@ -81,10 +81,10 @@ const Random = () => {
                     <Image h={{base: "200px", lg: "300px"}} objectFit="cover" src={meal?.strMealThumb} borderRadius="20px" />
                     <Heading fontSize={{base: "1rem", lg:"2rem"}} textAlign="center" mb="1rem">{meal?.strMeal}</Heading>
 
-                    <Button onClick={() => onOpen()} fontSize={{ base: "12px", lg: "16px" }} h={{ base: "25px", lg: "50px" }} bg="#DD3766" color="white" borderRadius="0px" display="flex" w="100%" justifySelf="flex-end">View</Button>
+                    <Button onClick={() => onOpen()} fontSize={{ base: "12px", lg: "16px" }} h={{ base: "25px", lg: "50px" }} bg="#AD192A" color="white" borderRadius="0px" display="flex" w="100%" justifySelf="flex-end">View</Button>
                     </Flex>
                 </Box> : <Spinner /> }
-                <Button onClick={() => nextDish()} bg="#DD3766" color="white">Next Dish</Button>
+                <Button onClick={() => nextDish()} bg="#AD192A" color="white">Next Dish</Button>
                 </Flex>
         </Box>
         </>

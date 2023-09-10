@@ -134,7 +134,7 @@ const ChakraModal = (props: Props) => {
                   >
                     <AiOutlineHeart
                       fontSize={{ base: "10px", lg: "50px" }}
-                      color="#DD3766"
+                      color="#AD192A"
                     />
                   </Box>
                   <Text
@@ -148,7 +148,7 @@ const ChakraModal = (props: Props) => {
                   <Box fontSize={{ base: "10px", lg: "30px" }}>
                     <AiFillHeart
                       fontSize={{ base: "10px", lg: "50px" }}
-                      color="#DD3766"
+                      color="AD192A"
                     />
                   </Box>
                   <Text
@@ -164,7 +164,7 @@ const ChakraModal = (props: Props) => {
                   justifySelf="center"
                   fontSize={{ base: "15px", lg: "30px" }}
                   fontFamily="Fasthand"
-                  color="#DD3766"
+                  color="#AD192A"
                 >
                   {props.selectedMeal?.strMeal}
                 </Heading>
@@ -200,7 +200,7 @@ const ChakraModal = (props: Props) => {
                         YouTube Video
                       </Link>
                     ) : (
-                      <Tag h="20px" color="white" bg="#DD3766">
+                      <Tag h="20px" color="white" bg="#AD192A">
                         No Youtube video available 😔
                       </Tag>
                     )}
@@ -208,7 +208,7 @@ const ChakraModal = (props: Props) => {
                     <Heading
                       mt="1rem"
                       fontSize={{ base: "16px", lg: "25px" }}
-                      color="#DD3766"
+                      color="#AD192A"
                     >
                       Tags
                     </Heading>
@@ -216,7 +216,7 @@ const ChakraModal = (props: Props) => {
                       {tags?.map((tag, _) => (
                         <>
                           {tag !== "" ? (
-                            <Tag bg="#DD3766" color="white">
+                            <Tag color="#FCFFAF" bg="#AD192A">
                               {tag}
                             </Tag>
                           ) : (
@@ -230,7 +230,7 @@ const ChakraModal = (props: Props) => {
                 <Heading
                   fontSize={{ base: "16px", lg: "25px" }}
                   mt="1rem"
-                  color="#DD3766"
+                  color="#AD192A"
                 >
                   Method
                 </Heading>
@@ -248,7 +248,7 @@ const ChakraModal = (props: Props) => {
                 <Box position="sticky" top="1rem">
                   <Heading
                     fontSize={{ base: "16px", lg: "25px" }}
-                    color="#DD3766"
+                    color="#AD192A"
                   >
                     Ingredients and measurements
                   </Heading>
@@ -258,7 +258,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient1} (
                           {props.selectedMeal?.strMeasure1})
                         </ListItem>
@@ -269,7 +269,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient2} (
                           {props.selectedMeal?.strMeasure2})
                         </ListItem>
@@ -280,7 +280,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient3} (
                           {props.selectedMeal?.strMeasure3})
                         </ListItem>
@@ -291,7 +291,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient4} (
                           {props.selectedMeal?.strMeasure4})
                         </ListItem>
@@ -302,7 +302,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient5} (
                           {props.selectedMeal?.strMeasure5})
                         </ListItem>
@@ -313,7 +313,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient6} (
                           {props.selectedMeal?.strMeasure6})
                         </ListItem>
@@ -324,7 +324,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient7} (
                           {props.selectedMeal?.strMeasure7})
                         </ListItem>
@@ -335,7 +335,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient8} (
                           {props.selectedMeal?.strMeasure8})
                         </ListItem>
@@ -346,7 +346,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient9} (
                           {props.selectedMeal?.strMeasure9})
                         </ListItem>
@@ -357,7 +357,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient10} (
                           {props.selectedMeal?.strMeasure10})
                         </ListItem>
@@ -368,7 +368,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient11} (
                           {props.selectedMeal?.strMeasure11})
                         </ListItem>
@@ -379,7 +379,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient12} (
                           {props.selectedMeal?.strMeasure12})
                         </ListItem>
@@ -390,7 +390,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient13} (
                           {props.selectedMeal?.strMeasure13})
                         </ListItem>
@@ -401,7 +401,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient14} (
                           {props.selectedMeal?.strMeasure14})
                         </ListItem>
@@ -412,7 +412,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient15} (
                           {props.selectedMeal?.strMeasure15})
                         </ListItem>
@@ -423,7 +423,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient16} (
                           {props.selectedMeal?.strMeasure16})
                         </ListItem>
@@ -434,7 +434,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient17} (
                           {props.selectedMeal?.strMeasure17})
                         </ListItem>
@@ -445,7 +445,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient18} (
                           {props.selectedMeal?.strMeasure18})
                         </ListItem>
@@ -456,7 +456,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient19} (
                           {props.selectedMeal?.strMeasure19})
                         </ListItem>
@@ -467,7 +467,7 @@ const ChakraModal = (props: Props) => {
                         <ListItem
                           fontSize={{ base: "10px", lg: "16px" }}
                         >
-                          <ListIcon as={FaCircleNotch} color="#DD3766" />
+                          <ListIcon as={FaCircleNotch} color="#AD192A" />
                           {props.selectedMeal?.strIngredient20} (
                           {props.selectedMeal?.strMeasure20})
                         </ListItem>

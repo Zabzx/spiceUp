@@ -48,7 +48,7 @@ const Navigation = () => {
       <Container maxW="90%">
         <Flex justifyContent="space-between" alignItems="center" height="75px">
           <Flex gap="1rem" alignItems="center">
-            <PiBowlFoodFill color="#DD3766" fontSize="32px" />
+            <PiBowlFoodFill color="#AD192A" fontSize="32px" />
             <Link to="/">
             <Heading
               variant="fasthand"
@@ -65,9 +65,9 @@ const Navigation = () => {
                 <Link key={index} to={item.url}>
                   {location.pathname === item.url ? (
                     <Text
-                      backgroundColor="#DD3766"
+                      backgroundColor="#AD192A"
                       borderRadius="20px"
-                      color="white"
+                      color="#FCFFAF"
                       px="15px"
                       position="relative"
                       _after={{
@@ -75,7 +75,7 @@ const Navigation = () => {
                         position: "absolute",
                         bottom: "0",
                         left: "0",
-                        backgroundColor: "#DD3766",
+                        backgroundColor: "#AD192A",
                         h: "5px",
                         w: "0%",
                         mb: "-10px",
@@ -102,7 +102,7 @@ const Navigation = () => {
                         position: "absolute",
                         bottom: "0",
                         left: "0",
-                        backgroundColor: "#DD3766",
+                        backgroundColor: "#AD192A",
                         h: "5px",
                         w: "0%",
                         mb: "-10px",

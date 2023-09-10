@@ -85,7 +85,7 @@ const Favorites = () => {
                   onClick={() => searchDish(meal)}
                   fontSize={{ base: "12px", lg: "16px" }}
                   h={{ base: "25px", lg: "50px" }}
-                  bg="#DD3766"
+                  bg="#AD192A"
                   color="white"
                   borderRadius="0px"
                   display="flex"

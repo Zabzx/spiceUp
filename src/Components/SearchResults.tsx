@@ -214,6 +214,7 @@ const SearchResults = () => {
                         objectFit="cover"
                         src={meal.strMealThumb}
                         borderRadius="20px"
+                        loading="lazy"
                       />
                       <Heading
                         fontSize={{ base: "1rem", lg: "2rem" }}
@@ -227,7 +228,7 @@ const SearchResults = () => {
                         onClick={() => searchDish(meal)}
                         fontSize={{ base: "12px", lg: "16px" }}
                         h={{ base: "25px", lg: "50px" }}
-                        bg="#DD3766"
+                        bg="#AD192A"
                         color="white"
                         borderRadius="0px"
                         display="flex"
