@@ -40,7 +40,7 @@ const NavMenu = (props: Props) => {
                   navigate("/");
                   props.onClose();
                 }}
-                color="#FF2424"
+                color="#AD192A"
               >
                 HOME
               </Text>
@@ -50,7 +50,7 @@ const NavMenu = (props: Props) => {
                   navigate("/categories");
                   props.onClose();
                 }}
-                color="#FF2424"
+                color="#AD192A"
               >
                 CATEGORIES
               </Text>
@@ -60,7 +60,7 @@ const NavMenu = (props: Props) => {
                   navigate("/region");
                   props.onClose();
                 }}
-                color="#FF2424"
+                color="#AD192A"
               >
                 BY REGION
               </Text>
@@ -70,7 +70,7 @@ const NavMenu = (props: Props) => {
                   navigate("/random");
                   props.onClose();
                 }}
-                color="#FF2424"
+                color="#AD192A"
               >
                 RANDOM
               </Text>
@@ -80,7 +80,7 @@ const NavMenu = (props: Props) => {
                   navigate("/favorites");
                   props.onClose();
                 }}
-                color="#FF2424"
+                color="#AD192A"
               >
                 FAVORITES
               </Text>

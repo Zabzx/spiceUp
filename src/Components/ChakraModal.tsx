@@ -216,7 +216,7 @@ const ChakraModal = (props: Props) => {
                       {tags?.map((tag, _) => (
                         <>
                           {tag !== "" ? (
-                            <Tag color="#FCFFAF" bg="#AD192A">
+                            <Tag color="#FCFFAF" bg="#AD192A"   >
                               {tag}
                             </Tag>
                           ) : (

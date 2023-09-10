@@ -130,20 +130,20 @@ const Navigation = () => {
             onClick={onOpen}
           >
             <Box
-              backgroundColor="#FF2424"
+              backgroundColor="#AD192A"
               h="5px"
               w="30px"
               borderRadius="10px"
             ></Box>
             <Box
-              backgroundColor="#FF2424"
+              backgroundColor="#AD192A"
               h="5px"
               w="30px"
               borderRadius="10px"
               mt="3px"
             ></Box>
             <Box
-              backgroundColor="#FF2424"
+              backgroundColor="#AD192A"
               h="5px"
               w="30px"
               borderRadius="10px"
