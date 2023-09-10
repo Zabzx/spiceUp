@@ -16,12 +16,14 @@
     "@fontsource/fasthand": "^5.0.5",
     "@fontsource/ubuntu": "^5.0.5",
     "framer-motion": "^10.12.18",
+    "lozad": "^1.16.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.2"
   },
   "devDependencies": {
+    "@types/lozad": "^1.16.2",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.61.0",

@@ -14,6 +14,8 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import lozad from "lozad";
+import Blur from "../assets/category-thumbnails/blur.jpg"
 
 // Component Imports
 import ChakraModal from "./ChakraModal";
@@ -84,12 +86,11 @@ const SearchResults = () => {
   // State
   const [meals, setmeals] = useState<[]>();
   const [modalContent, setModalContent] = useState<SelectedMeal | undefined>();
+  const [loaded, setLoaded] = useState(false);
 
   // Variables
   const { type, query } = useParams();
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  // Context
 
   // Effects
   // Searching for dishes
@@ -136,6 +137,17 @@ const SearchResults = () => {
         });
     }
   }, []);
+
+  useEffect(() => {
+    const observer = lozad(".lozad", {
+      loaded: function () {
+        // Replace the blurry placeholder with the high-resolution image
+        setLoaded(true);
+        console.log(loaded)
+      },
+    });
+    observer.observe();
+  }, [meals]);
 
   // Functions
   async function searchDish(meal: Meal) {
@@ -212,9 +224,10 @@ const SearchResults = () => {
                       <Image
                         h={{ base: "200px", lg: "300px" }}
                         objectFit="cover"
-                        src={meal.strMealThumb}
+                        src={loaded ? meal.strMealThumb : Blur}
                         borderRadius="20px"
                         loading="lazy"
+                        className="lozad"
                       />
                       <Heading
                         fontSize={{ base: "1rem", lg: "2rem" }}
