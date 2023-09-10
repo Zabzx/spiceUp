@@ -86,7 +86,7 @@ const Favorites = () => {
                   fontSize={{ base: "12px", lg: "16px" }}
                   h={{ base: "25px", lg: "50px" }}
                   bg="#AD192A"
-                  color="white"
+                  color="#FCFFAF"
                   borderRadius="0px"
                   display="flex"
                   w="100%"
