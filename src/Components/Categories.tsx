@@ -104,7 +104,7 @@ const Categories = () => {
                     <Box bg="black" borderRadius="20px"> { /* Overlay for dark thumbnail */}
                     <Image _hover={{ transform: "scale(.9)" }} transition="0.4s" cursor="pointer" objectFit="cover" h={["200px", "200px", "200px", "470px"]} w="100%" opacity="0.7" src={item.image} borderRadius="20px" />
                     </Box>
-                    <Heading py=".5rem" color="white" textAlign="center">{item.name}</Heading>
+                    <Heading py=".5rem" color="#FCFFAF" textAlign="center">{item.name}</Heading>
                 </GridItem>
                 ))}
             </Grid>
