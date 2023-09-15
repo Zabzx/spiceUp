@@ -143,7 +143,6 @@ const SearchResults = () => {
       loaded: function () {
         // Replace the blurry placeholder with the high-resolution image
         setLoaded(true);
-        console.log(loaded)
       },
     });
     observer.observe();

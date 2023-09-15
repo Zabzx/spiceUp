@@ -36,16 +36,11 @@ const ChakraModal = (props: Props) => {
 
   // State
   const [tags, setTags] = useState<string[]>();
+  const [ingredients, setIngredients] = useState<string[]>([]);
+  const [measurements, setMeasurements] = useState<string[]>([]);
   const [alreadyFavorite, setAlreadyFavorite] = useState(false);
 
   // Effects
-  useEffect(() => {
-    let tags = props.selectedMeal?.strTags;
-
-    let tagArray = tags?.split(",");
-    setTags(tagArray);
-  }, [props.selectedMeal]);
-  
   // Check if dish is already favorited
   useEffect(() => {
     let existingFavorites: SelectedMeal[] = JSON.parse(localStorage.getItem("favorites")!);
@@ -62,6 +57,23 @@ const ChakraModal = (props: Props) => {
     } else {
       setAlreadyFavorite(false);
     }
+
+    // Clears ingredients and measurements when selecting a new dish
+    setIngredients([]);
+    setMeasurements([]);
+  }, [props.selectedMeal]);
+
+  // Update ingredients and measurements on new render
+  useEffect(() => {
+    getIngredientsAndMeasurements();
+  }, [props.selectedMeal]);
+
+  // Update tags on new render
+  useEffect(() => {
+    let tags = props.selectedMeal?.strTags;
+
+    let tagArray = tags?.split(",");
+    setTags(tagArray);
   }, [props.selectedMeal]);
 
   function setFavorite(meal: SelectedMeal) {
@@ -106,6 +118,28 @@ const ChakraModal = (props: Props) => {
         status: "success",
         isClosable: true,
       });
+    }
+  }
+
+  function getIngredientsAndMeasurements() {
+    const validKeys = [];
+    for (const property in props.selectedMeal) {
+      if (props.selectedMeal[property as keyof SelectedMeal] === "" || props.selectedMeal[property as keyof SelectedMeal] === null) {
+
+      } else {
+        validKeys.push(property)
+      }
+    }
+
+    const ingredientValues = validKeys.filter(key => key.startsWith("strIngredient"));
+    const measurements = validKeys.filter(key => key.startsWith("strMeasure"));
+
+    for (const i of ingredientValues) {
+      setIngredients(prev => [...prev, props.selectedMeal![i as keyof SelectedMeal]])
+    }
+
+    for (const m of measurements) {
+      setMeasurements(prev => [...prev, props.selectedMeal![m as keyof SelectedMeal]])
     }
   }
 
@@ -213,16 +247,8 @@ const ChakraModal = (props: Props) => {
                       Tags
                     </Heading>
                     <Flex mt="1rem" gap="10px" flexDir="column">
-                      {tags?.map((tag, _) => (
-                        <>
-                          {tag !== "" ? (
-                            <Tag color="#FCFFAF" bg="#AD192A"   >
-                              {tag}
-                            </Tag>
-                          ) : (
-                            ""
-                          )}
-                        </>
+                      {tags?.map((tag, index) => (
+                        <Tag color="#FCFFAF" bg="#AD192A" key={index}>{tag}</Tag>
                       ))}
                     </Flex>
                   </Box>
@@ -253,225 +279,15 @@ const ChakraModal = (props: Props) => {
                     Ingredients and measurements
                   </Heading>
                   <List mt="1rem" spacing={3}>
-                    {props.selectedMeal?.strIngredient1 !== null &&
-                      props.selectedMeal?.strIngredient1 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient1} (
-                          {props.selectedMeal?.strMeasure1})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient2 !== null &&
-                      props.selectedMeal?.strIngredient2 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient2} (
-                          {props.selectedMeal?.strMeasure2})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient3 !== null &&
-                      props.selectedMeal?.strIngredient1 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient3} (
-                          {props.selectedMeal?.strMeasure3})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient4 !== null &&
-                      props.selectedMeal?.strIngredient1 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient4} (
-                          {props.selectedMeal?.strMeasure4})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient5 !== null &&
-                      props.selectedMeal?.strIngredient5 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient5} (
-                          {props.selectedMeal?.strMeasure5})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient6 !== null &&
-                      props.selectedMeal?.strIngredient6 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient6} (
-                          {props.selectedMeal?.strMeasure6})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient7 !== null &&
-                      props.selectedMeal?.strIngredient7 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient7} (
-                          {props.selectedMeal?.strMeasure7})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient8 !== null &&
-                      props.selectedMeal?.strIngredient8 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient8} (
-                          {props.selectedMeal?.strMeasure8})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient9 !== null &&
-                      props.selectedMeal?.strIngredient9 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient9} (
-                          {props.selectedMeal?.strMeasure9})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient10 !== null &&
-                      props.selectedMeal?.strIngredient10 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient10} (
-                          {props.selectedMeal?.strMeasure10})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient11 !== null &&
-                      props.selectedMeal?.strIngredient11 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient11} (
-                          {props.selectedMeal?.strMeasure11})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient12 !== null &&
-                      props.selectedMeal?.strIngredient12 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient12} (
-                          {props.selectedMeal?.strMeasure12})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient13 !== null &&
-                      props.selectedMeal?.strIngredient13 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient13} (
-                          {props.selectedMeal?.strMeasure13})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient14 !== null &&
-                      props.selectedMeal?.strIngredient14 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient14} (
-                          {props.selectedMeal?.strMeasure14})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient15 !== null &&
-                      props.selectedMeal?.strIngredient15 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient15} (
-                          {props.selectedMeal?.strMeasure15})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient16 !== null &&
-                      props.selectedMeal?.strIngredient16 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient16} (
-                          {props.selectedMeal?.strMeasure16})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient17 !== null &&
-                      props.selectedMeal?.strIngredient17 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient17} (
-                          {props.selectedMeal?.strMeasure17})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient18 !== null &&
-                      props.selectedMeal?.strIngredient18 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient18} (
-                          {props.selectedMeal?.strMeasure18})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient19 !== null &&
-                      props.selectedMeal?.strIngredient19 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient19} (
-                          {props.selectedMeal?.strMeasure19})
-                        </ListItem>
-                      )}
-
-                    {props.selectedMeal?.strIngredient20 !== null &&
-                      props.selectedMeal?.strIngredient20 !== "" && (
-                        <ListItem
-                          fontSize={{ base: "10px", lg: "16px" }}
-                        >
-                          <ListIcon as={FaCircleNotch} color="#AD192A" />
-                          {props.selectedMeal?.strIngredient20} (
-                          {props.selectedMeal?.strMeasure20})
-                        </ListItem>
-                      )}
+                    {ingredients.map((ingredient, index) => (
+                      <ListItem key={index}
+                      fontSize={{ base: "10px", lg: "16px" }}
+                    >
+                      <ListIcon as={FaCircleNotch} color="#AD192A" />
+                      {ingredient} (
+                      {measurements[index]})
+                    </ListItem>
+                    ))}
                   </List>
                 </Box>
               </Box>
