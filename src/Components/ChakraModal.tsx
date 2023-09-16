@@ -18,7 +18,7 @@ import {
   useToast
 } from "@chakra-ui/react";
 import { AiOutlineHeart, AiFillHeart, AiFillYoutube } from "react-icons/ai";
-import { SelectedMeal } from "./SearchResults";
+import { SelectedMeal } from "../data";
 import { FaCircleNotch } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 
@@ -246,11 +246,11 @@ const ChakraModal = (props: Props) => {
                     >
                       Tags
                     </Heading>
-                    <Flex mt="1rem" gap="10px" flexDir="column">
+                    { tags !== undefined ? <Flex mt="1rem" gap="10px" flexDir="column">
                       {tags?.map((tag, index) => (
                         <Tag color="#FCFFAF" bg="#AD192A" key={index}>{tag}</Tag>
                       ))}
-                    </Flex>
+                    </Flex> : <Tag mt="1rem" color="#FCFFAF" bg="#AD192A">No tags available</Tag>}
                   </Box>
                 </Flex>
                 <Heading
