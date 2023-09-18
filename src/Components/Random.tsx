@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Box, Flex, Image, Heading, Button, Spinner, useDisclosure, useToast } from "@chakra-ui/react"
-import { SelectedMeal } from "./SearchResults";
+import { SelectedMeal } from "../data";
 import ChakraModal from "./ChakraModal";
+import lozad from "lozad";
+import Blur from "../assets/category-thumbnails/blur.jpg"
 
 const Random = () => {
     // Variables
@@ -11,6 +13,7 @@ const Random = () => {
     // State
     const [meal, setMeal] = useState<SelectedMeal>();
     const [loading, setLoading] = useState(true);
+    const [imageLoad, setimageLoad] = useState(false);
 
     // Effects
     useEffect(() => {
@@ -29,6 +32,15 @@ const Random = () => {
                 setLoading(true);
             });
     }, []);
+
+    useEffect(() => {
+        const observer = lozad(".lozad", {
+            loaded: function() {
+                setimageLoad(true);
+            },
+        });
+        observer.observe();
+    }, [meal]);
 
     // Functions
     async function nextDish() {
@@ -78,7 +90,7 @@ const Random = () => {
         <Flex w="100%" justifyContent={{ base: "center", lg: "space-around" }} align="center" flexDir="column" gap="2rem">
         { !loading ? <Box h={{ base: "300px", lg: "500px"}} maxH="600px" w={{ base: "90%", lg: "30%" }} borderRadius="20px 20px 0 0" boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px">
                     <Flex h="100%" flexDir="column" justifyContent="space-between">
-                    <Image h={{base: "200px", lg: "300px"}} objectFit="cover" src={meal?.strMealThumb} borderRadius="20px" />
+                    <Image className="lozad" h={{base: "200px", lg: "300px"}} objectFit="cover" src={ imageLoad ? meal?.strMealThumb : Blur} borderRadius="20px" />
                     <Heading fontSize={{base: "1rem", lg:"2rem"}} textAlign="center" mb="1rem">{meal?.strMeal}</Heading>
 
                     <Button onClick={() => onOpen()} fontSize={{ base: "12px", lg: "16px" }} h={{ base: "25px", lg: "50px" }} bg="#AD192A" color="#FCFFAF" borderRadius="0px" display="flex" w="100%" justifySelf="flex-end">View</Button>

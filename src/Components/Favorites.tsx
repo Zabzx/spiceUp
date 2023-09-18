@@ -10,7 +10,9 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import ChakraModal from "./ChakraModal";
-import { SelectedMeal } from "./SearchResults";
+import { SelectedMeal } from "../data";
+import lozad from "lozad";
+import Blur from "../assets/category-thumbnails/blur.jpg";
 
 const Favorites = () => {
   // Variables
@@ -19,6 +21,7 @@ const Favorites = () => {
   // State
   const [favorites, setFavorites] = useState<SelectedMeal[]>([]);
   const [selectedMeal, setSelectedMeal] = useState<SelectedMeal>();
+  const [loaded, setLoaded] = useState(false);
 
   // Effects
   useEffect(() => {
@@ -28,6 +31,15 @@ const Favorites = () => {
       setFavorites([]);
     }
   }, []);
+
+  useEffect(() => {
+    const observer = lozad(".lozad", {
+      loaded: () => {
+        setLoaded(true);
+      },
+    });
+    observer.observe();
+  }, [favorites]);
 
   // Functions
   function searchDish(meal: SelectedMeal) {
@@ -68,9 +80,10 @@ const Favorites = () => {
             >
               <Flex h="100%" flexDir="column" justifyContent="space-between">
                 <Image
+                  className="lozad"
                   h={{ base: "200px", lg: "300px" }}
                   objectFit="cover"
-                  src={meal.strMealThumb}
+                  src={ loaded ? meal.strMealThumb : Blur}
                   borderRadius="20px"
                 />
                 <Heading

@@ -1,4 +1,7 @@
 import { Grid, GridItem, Container, Box, Heading, Image } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import lozad from "lozad";
+import Blur from "../assets/category-thumbnails/blur.jpg"
 import { useNavigate } from "react-router-dom";
 import CANADA from "../assets/region thumbnails/canada.png"
 import CHINA from "../assets/region thumbnails/china.png"
@@ -177,10 +180,21 @@ const Region = () => {
 
     let navigate = useNavigate();
 
+    const [loaded, setLoaded] = useState(false);
+
     // Functions
     function searchRegion(item: Region) {
         navigate(`/search/region/${item.query}`);
     }
+
+    useEffect(() => {
+        const observer = lozad(".lozad", {
+            loaded: () => {
+                setLoaded(true);
+            },
+        });
+        observer.observe();
+    }, []);
 
     return (
         <>
@@ -190,7 +204,7 @@ const Region = () => {
                 {regions.map((item, index) => (
                     <GridItem w="100%" onClick={() => searchRegion(item)} key={index} bg="#AD192A" borderRadius="20px">
                     <Box bg="black" borderRadius="20px"> { /* Overlay for dark thumbnail */}
-                    <Image _hover={{ transform: "scale(.9)" }} transition="0.4s" cursor="pointer" objectFit="cover" h={["200px", "200px", "200px", "470px"]} w="100%" opacity="0.7" src={item.image} borderRadius="20px" />
+                    <Image className="lozad" _hover={{ transform: "scale(.9)" }} transition="0.4s" cursor="pointer" objectFit="cover" h={["200px", "200px", "200px", "470px"]} w="100%" opacity="0.7" src={ loaded ? item.image : Blur} borderRadius="20px" />
                     </Box>
                     <Heading py=".5rem" color="#FCFFAF" textAlign="center">{item.name}</Heading>
                 </GridItem>
