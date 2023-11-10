@@ -29,13 +29,13 @@ const Region = () => {
         <>
         <Heading mt={{ base: "2rem", lg: "1rem", }} textAlign="center" fontFamily="Fasthand">Select a Region</Heading>
         <Container maxW="90%">
-            <Grid mt="1rem" mb="3rem" templateColumns={["1fr", "repeat(2, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)"]} gap="2rem" >
+            <Grid mt="1rem" mb="3rem" templateColumns={["1fr", "repeat(2, 1fr)", "repeat(2, 1fr)", "repeat(4, 1fr)"]} gap="2rem" >
                 {Regions.map((item, index) => (
-                    <GridItem w="100%" onClick={() => searchRegion(item)} key={index} bg="#AD192A" borderRadius="20px">
+                    <GridItem position="relative" w={["100%", "70%"]} onClick={() => searchRegion(item)} key={index} bg="#AD192A" borderRadius="20px" height="auto">
                     <Box bg="black" borderRadius="20px"> { /* Overlay for dark thumbnail */}
-                    <Image className="lozad" _hover={{ transform: "scale(.9)" }} transition="0.4s" cursor="pointer" objectFit="cover" h={["200px", "200px", "200px", "470px"]} w="100%" opacity="0.7" src={ loaded ? item.image : Blur} borderRadius="20px" />
+                    <Image h="150px" className="lozad" _hover={{ transform: "scale(.9)" }} transition="0.4s" cursor="pointer" objectFit="cover" w="100%" opacity="0.5" src={ loaded ? item.image : Blur} borderRadius="20px" />
                     </Box>
-                    <Heading py=".5rem" color="#FCFFAF" textAlign="center">{item.name}</Heading>
+                    <Heading position="absolute" top="50%" left="50%" transform="translateX(-50%)" color="#FCFFAF" textAlign="center">{item.name}</Heading>
                 </GridItem>
                 ))}
             </Grid>

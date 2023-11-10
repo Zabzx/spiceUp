@@ -295,7 +295,7 @@ export const Regions: Region[] = [
         query: "British"
     },
     {
-        name: "United States",
+        name: "USA",
         image: UNITEDSTATES,
         query: "American"
     },
