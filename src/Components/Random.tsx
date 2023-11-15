@@ -12,6 +12,7 @@ const Random = () => {
 
     // State
     const [meal, setMeal] = useState<SelectedMeal>();
+    const [alreadyFavorite, setAlreadyFavorite] = useState(false);
     const [loading, setLoading] = useState(true);
     const [imageLoad, setimageLoad] = useState(false);
 
@@ -43,6 +44,22 @@ const Random = () => {
     }, [meal]);
 
     // Functions
+    function checkFav() {
+        let existingFavorites: SelectedMeal[] = JSON.parse(localStorage.getItem("favorites")!);
+
+        if (existingFavorites === null) return;
+    
+        const searchKey = "strMeal";
+        const searchValue = meal?.strMeal;
+    
+        const found = existingFavorites.some(obj => obj[searchKey] === searchValue);
+    
+        if (found) {
+          setAlreadyFavorite(true);
+        } else {
+          setAlreadyFavorite(false);
+        }
+    }
     async function nextDish() {
         setLoading(true);
         try {
@@ -84,7 +101,7 @@ const Random = () => {
 
     return (
         <>
-        <ChakraModal selectedMeal={meal} isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
+        <ChakraModal alreadyFavorite={alreadyFavorite} setAlreadyFavorite={setAlreadyFavorite} selectedMeal={meal} isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
         
         <Box mt="5rem">
         <Flex w="100%" justifyContent={{ base: "center", lg: "space-around" }} align="center" flexDir="column" gap="2rem">
@@ -93,7 +110,10 @@ const Random = () => {
                     <Image className="lozad" h={{base: "200px", lg: "300px"}} objectFit="cover" src={ imageLoad ? meal?.strMealThumb : Blur} borderRadius="20px" />
                     <Heading fontSize={{base: "1rem", lg:"2rem"}} textAlign="center" mb="1rem">{meal?.strMeal}</Heading>
 
-                    <Button onClick={() => onOpen()} fontSize={{ base: "12px", lg: "16px" }} h={{ base: "25px", lg: "50px" }} bg="#AD192A" color="#FCFFAF" borderRadius="0px" display="flex" w="100%" justifySelf="flex-end">View</Button>
+                    <Button onClick={() => {
+                        checkFav();
+                        onOpen();
+                    }} fontSize={{ base: "12px", lg: "16px" }} h={{ base: "25px", lg: "50px" }} bg="#AD192A" color="#FCFFAF" borderRadius="0px" display="flex" w="100%" justifySelf="flex-end">View</Button>
                     </Flex>
                 </Box> : <Spinner /> }
                 <Button onClick={() => nextDish()} bg="#AD192A" color="#FCFFAF">Next Dish</Button>
