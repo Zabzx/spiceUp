@@ -1,4 +1,4 @@
-import { useEffect, useState, Dispatch, SetStateAction } from "react";
+import { useEffect, useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -24,8 +24,6 @@ import { Link, useLocation } from "react-router-dom";
 
 type Props = {
   selectedMeal: SelectedMeal | undefined;
-  alreadyFavorite: boolean;
-  setAlreadyFavorite: Dispatch<SetStateAction<boolean>>
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
@@ -40,13 +38,30 @@ const ChakraModal = (props: Props) => {
   const [tags, setTags] = useState<string[]>();
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [measurements, setMeasurements] = useState<string[]>([]);
+  const [alreadyFavorite, setAlreadyFavorite] = useState(false);
 
   // Effects
+  // Check if dish is already favorited
   useEffect(() => {
+    let existingFavorites: SelectedMeal[] = JSON.parse(localStorage.getItem("favorites")!);
+
+    if (existingFavorites === null) return;
+
+    const searchKey = "strMeal";
+    const searchValue = props.selectedMeal?.strMeal;
+
+    const found = existingFavorites.some(obj => obj[searchKey] === searchValue);
+
+    if (found) {
+      setAlreadyFavorite(true);
+    } else {
+      setAlreadyFavorite(false);
+    }
+
     // Clears ingredients and measurements when selecting a new dish
     setIngredients([]);
     setMeasurements([]);
-  }, [props.selectedMeal]);
+  }, [props.isOpen]);
 
   // Update ingredients and measurements on new render
   useEffect(() => {
@@ -77,7 +92,7 @@ const ChakraModal = (props: Props) => {
     existingFavorites.push(meal);
     localStorage.setItem("favorites", JSON.stringify(existingFavorites));
 
-    props.setAlreadyFavorite((prev: boolean) => !prev);
+    setAlreadyFavorite((prev: boolean) => !prev);
 
     toast({
       title: "New Dish added!",
@@ -145,7 +160,7 @@ const ChakraModal = (props: Props) => {
               h="50px"
               alignItems="center"
             >
-              {!props.alreadyFavorite ? (
+              {!alreadyFavorite ? (
                 <Flex cursor="pointer" onClick={() => setFavorite(props.selectedMeal!)} gap=".5rem" alignItems="center">
                   <Box
                     cursor="pointer"
