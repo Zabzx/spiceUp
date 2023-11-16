@@ -104,6 +104,7 @@ const Favorites = () => {
                   display="flex"
                   w="100%"
                   justifySelf="flex-end"
+                  _hover={{}}
                 >
                   View
                 </Button>

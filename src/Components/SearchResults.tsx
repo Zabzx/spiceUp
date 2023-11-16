@@ -187,6 +187,7 @@ const SearchResults = () => {
                         onClick={() => searchDish(meal)}
                         fontSize={{ base: "12px", lg: "16px" }}
                         h={{ base: "25px", lg: "50px" }}
+                        _hover={{}}
                         bg="#AD192A"
                         color="#FCFFAF"
                         borderRadius="0px"

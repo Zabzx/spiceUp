@@ -93,7 +93,7 @@ const Random = () => {
                     <Image className="lozad" h={{base: "200px", lg: "300px"}} objectFit="cover" src={ imageLoad ? meal?.strMealThumb : Blur} borderRadius="20px" />
                     <Heading fontSize={{base: "1rem", lg:"2rem"}} textAlign="center" mb="1rem">{meal?.strMeal}</Heading>
 
-                    <Button onClick={() => onOpen()} fontSize={{ base: "12px", lg: "16px" }} h={{ base: "25px", lg: "50px" }} bg="#AD192A" color="#FCFFAF" borderRadius="0px" display="flex" w="100%" justifySelf="flex-end">View</Button>
+                    <Button _hover={{}} onClick={() => onOpen()} fontSize={{ base: "12px", lg: "16px" }} h={{ base: "25px", lg: "50px" }} bg="#AD192A" color="#FCFFAF" borderRadius="0px" display="flex" w="100%" justifySelf="flex-end">View</Button>
                     </Flex>
                 </Box> : <Spinner /> }
                 <Button onClick={() => nextDish()} bg="#AD192A" color="#FCFFAF">Next Dish</Button>
